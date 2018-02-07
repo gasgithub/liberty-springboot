@@ -14,7 +14,8 @@ pipeline {
  			steps {
  				sh '''
  				cd liberty.springboot/target
- 				archiveArtifacts artifacts: '*.jar, *.zip, *.war', fingerprint: true 
+ 				ls
+ 				archiveArtifacts '*.jar, *.zip, *.war' 
  				'''
  			}
  		}
