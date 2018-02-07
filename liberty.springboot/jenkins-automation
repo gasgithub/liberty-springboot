@@ -6,17 +6,14 @@ pipeline {
  				sh '''
  				echo "BUILD NUMBER: ${BUILD_NUMBER}"
  				cd liberty.springboot
- 				mvn clean package 
+ 				mvn clean verify 
  				'''
  			}
  		}
  		stage('Prepare artifacts') {
  			steps {
- 				sh '''
- 				cd liberty.springboot/target
- 				ls
- 				'''
  				archiveArtifacts 'liberty.springboot/target/*' 
+ 				junit allowEmptyResults: true, testResults: 'liberty.springboot/target/test-reports/**/*.xml'
  				
  			}
  		}
