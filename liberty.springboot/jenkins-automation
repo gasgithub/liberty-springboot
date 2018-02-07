@@ -7,11 +7,9 @@ pipeline {
  				echo "BUILD NUMBER: ${BUILD_NUMBER}"
  				cd liberty.springboot
  				mvn clean package
+ 				archiveArtifacts artifacts: '**/target/*.jar, **/target/*.zip, **/target/*.war', fingerprint: true 
  				'''
  			}
- 		}
- 		stage('Prepare Artifacts') {
- 			step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar, **/target/*.zip, **/target/*.war', fingerprint: true])
  		}
  	}
 }
