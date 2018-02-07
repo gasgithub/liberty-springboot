@@ -11,5 +11,13 @@ pipeline {
  				'''
  			}
  		}
+ 		stage('Prepare artifacts') {
+ 			steps {
+ 				sh '''
+ 				cd liberty.springboot/target
+ 				archiveArtifacts artifacts: '*.jar, *.zip, *.war', fingerprint: true 
+ 				'''
+ 			}
+ 		}
  	}
 }
