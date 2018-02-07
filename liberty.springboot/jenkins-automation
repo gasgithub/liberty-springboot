@@ -15,7 +15,7 @@ pipeline {
  				sh '''
  				cd liberty.springboot/target
  				ls
- 				archiveArtifacts 'liberty.springboot/target/*.jar, liberty.springboot/target/*.zip, liberty.springboot/target/*.war' 
+ 				archiveArtifacts 'liberty.springboot/target/*.*' 
  				'''
  			}
  		}
