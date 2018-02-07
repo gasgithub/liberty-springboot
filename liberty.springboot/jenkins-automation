@@ -1,14 +1,17 @@
 pipeline {
- agent any
- stages {
- stage('Build Automation') {
- steps {
- sh '''
- echo "BUILD NUMBER: ${BUILD_NUMBER}"
- cd liberty.springboot
- mvn clean test
- '''
- }
- }
- }
+	agent any
+ 	stages {
+ 		stage('Build Automation') {
+ 			steps {
+ 				sh '''
+ 				echo "BUILD NUMBER: ${BUILD_NUMBER}"
+ 				cd liberty.springboot
+ 				mvn clean package
+ 				'''
+ 			}
+ 		}
+ 		stage('Prepare Artifacts') {
+ 			step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar, **/target/*.zip, **/target/*.war', fingerprint: true])
+ 		}
+ 	}
 }
