@@ -15,8 +15,9 @@ pipeline {
  				sh '''
  				cd liberty.springboot/target
  				ls
- 				archiveArtifacts 'liberty.springboot/target/*' 
  				'''
+ 				archiveArtifacts 'liberty.springboot/target/*' 
+ 				
  			}
  		}
  	}
