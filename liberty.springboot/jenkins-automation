@@ -6,8 +6,7 @@ pipeline {
  				sh '''
  				echo "BUILD NUMBER: ${BUILD_NUMBER}"
  				cd liberty.springboot
- 				mvn clean package
- 				archiveArtifacts artifacts: '**/target/*.jar, **/target/*.zip, **/target/*.war', fingerprint: true 
+ 				mvn clean package 
  				'''
  			}
  		}
