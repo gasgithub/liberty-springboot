@@ -5,6 +5,7 @@ pipeline {
  steps {
  sh '''
  echo "BUILD NUMBER: ${BUILD_NUMBER}"
+ cd liberty.springboot
  mvn clean test
  '''
  }
