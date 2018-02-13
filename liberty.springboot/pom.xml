@@ -118,15 +118,15 @@
                     <include>${packaging.type}</include>
                     <bootstrapProperties>
                         <app.location>${project.artifactId}-${project.version}.war</app.location>
-<!--                         <default.http.port>${testServerHttpPort}</default.http.port> -->
-<!--                         <default.https.port>${testServerHttpsPort}</default.https.port> -->
+                        <default.http.port>${testServerHttpPort}</default.http.port>
+                        <default.https.port>${testServerHttpsPort}</default.https.port>
                         <bulbaBP>bulba123</bulbaBP>
                     </bootstrapProperties>
                     <features>
                         <acceptLicense>true</acceptLicense>
                     </features>
                     <looseApplication>false</looseApplication>
-<!-- gas                    <serverName>${app.name}Server</serverName> -->
+					<serverName>${app.name}Server</serverName>
                 </configuration>
                 <!-- gas -->
                 <executions>
